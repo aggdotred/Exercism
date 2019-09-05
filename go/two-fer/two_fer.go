@@ -6,7 +6,7 @@ import "fmt"
 // ShareWith generalizes the "One for you, one for me." string with you if no name is provided.
 func ShareWith(name string) string {
 	if name == "" {
-		return "One for you, one for me."
+		name = "you"
 	}
 	return fmt.Sprintf("One for %s, one for me.", name)
 }
