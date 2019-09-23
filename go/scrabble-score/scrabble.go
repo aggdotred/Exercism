@@ -1,52 +1,14 @@
 // Package scrabble is used to determine the scrabble score of a word
 package scrabble
 
+import "unicode"
+
 // Score takes a string and returns the scrabble score as an integer
 func Score(word string) int {
-	onePointLetters := []string{"A", "a", "E", "e", "I", "i", "O", "o", "U", "u", "L", "l", "N", "n", "R", "r", "s", "S", "T", "t"}
-	twoPointLetters := []string{"D", "d", "G", "g"}
-	threePointLetters := []string{"B", "b", "C", "c", "M", "m", "P", "p"}
-	fourPointLetters := []string{"F", "f", "H", "h", "V", "v", "W", "w", "Y", "y"}
-	fivePointLetters := []string{"K", "k"}
-	eightPointLetters := []string{"J", "j", "X", "x"}
-	tenPointLetters := []string{"Q", "q", "Z", "z"}
-	var score int
+	score := 0
+	scrabbleScoreMap := map[rune]int{'a': 1, 'e': 1, 'i': 1, 'o': 1, 'u': 1, 'l': 1, 'n': 1, 'r': 1, 's': 1, 't': 1, 'd': 2, 'g': 2, 'b': 3, 'c': 3, 'm': 3, 'p': 3, 'f': 4, 'h': 4, 'v': 4, 'w': 4, 'y': 4, 'k': 5, 'j': 8, 'x': 8, 'q': 10, 'z': 10}
 	for _, c := range word {
-		for _, c2 := range onePointLetters {
-			if string(c) == c2 {
-				score++
-			}
-		}
-		for _, c2 := range twoPointLetters {
-			if string(c) == c2 {
-				score += 2
-			}
-		}
-		for _, c2 := range threePointLetters {
-			if string(c) == c2 {
-				score += 3
-			}
-		}
-		for _, c2 := range fourPointLetters {
-			if string(c) == c2 {
-				score += 4
-			}
-		}
-		for _, c2 := range fivePointLetters {
-			if string(c) == c2 {
-				score += 5
-			}
-		}
-		for _, c2 := range eightPointLetters {
-			if string(c) == c2 {
-				score += 8
-			}
-		}
-		for _, c2 := range tenPointLetters {
-			if string(c) == c2 {
-				score += 10
-			}
-		}
+		score += scrabbleScoreMap[unicode.ToLower(c)]
 	}
 	return score
 }
