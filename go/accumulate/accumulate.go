@@ -17,7 +17,7 @@ func Accumulate(collection []string, operation string) string {
 }
 
 func capitalize(collection []string) []string {
-	return &"placeholder"
+	return "placeholder"
 }
 
 func uppercase(collection []string) []string {

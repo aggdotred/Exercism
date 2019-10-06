@@ -5,15 +5,16 @@ import "strings"
 
 // IsIsogram takes a string and returns true if it is an isogram
 func IsIsogram(word string) bool {
-	wordMap := make(map[rune]bool)
+	wordMap := map[rune]bool{}
 	wordLowerCase := strings.ToLower(word)
 	for _, r := range wordLowerCase {
 		if wordMap[r] {
 			return false
 		}
-		if string(r) != "-" && string(r) != " " {
-			wordMap[r] = true
+		if r == '-' || r == ' ' {
+			continue
 		}
+		wordMap[r] = true
 	}
 	return true
 }
