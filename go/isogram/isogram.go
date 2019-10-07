@@ -8,11 +8,11 @@ func IsIsogram(word string) bool {
 	wordMap := map[rune]bool{}
 	wordLowerCase := strings.ToLower(word)
 	for _, r := range wordLowerCase {
-		if wordMap[r] {
-			return false
-		}
 		if r == '-' || r == ' ' {
 			continue
+		}
+		if wordMap[r] {
+			return false
 		}
 		wordMap[r] = true
 	}
