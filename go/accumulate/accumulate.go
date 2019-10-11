@@ -2,13 +2,14 @@
 package accumulate
 
 // Accumulate takes an operation name and a string collection and returns the result
-func Accumulate(collection []string, operation string) string {
-	var result []string
+func Accumulate(collection []string, operation string) []string {
+	result := []string{"place", "holder"}
+
 	if operation == "echo" {
 		result = collection
 	}
 	if operation == "capitalize" {
-		result = capitalize(collection)
+		result = firstCaps(collection)
 	}
 	if operation == "strings.ToUpper" {
 		result = uppercase(collection)
@@ -16,10 +17,10 @@ func Accumulate(collection []string, operation string) string {
 	return result
 }
 
-func capitalize(collection []string) []string {
-	return "placeholder"
+func firstCaps(collection []string) []string {
+	return []string{"place", "holder"}
 }
 
 func uppercase(collection []string) []string {
-	return "placeholder"
+	return []string{"place", "holder"}
 }
